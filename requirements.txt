@@ -1,5 +1,0 @@
-gepeto
-requests
-instructor
-openai
-anthropic 
