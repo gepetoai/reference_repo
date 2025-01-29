@@ -5,8 +5,18 @@ from app.monitoring.logging import get_logger
 logger = get_logger(__name__)
 
 class CeleryClient:
+
     def __init__(self):
-        self.celery_app = Celery('tasks', broker=settings.CELERY_BROKER_URL)
+        if not settings.CELERY_BROKER_URL:
+            raise ValueError("Celery broker URL not configured")
+        self.celery_app = Celery(
+            'tasks',
+            broker=settings.CELERY_BROKER_URL,
+            backend=settings.CELERY_RESULT_BACKEND,
+            task_serializer='json',
+            result_serializer='json',
+            accept_content=['json']
+        )
 
     def create_task(self, task_name: str):
         def task_decorator(func):
