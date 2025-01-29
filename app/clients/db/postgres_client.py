@@ -9,7 +9,7 @@ logger = get_logger(__name__)
 
 Base = declarative_base()
 
--engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)
+engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)
 
 
 

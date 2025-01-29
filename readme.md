@@ -13,6 +13,17 @@ docker compose run --rm web alembic upgrade head
 To create a virtual environment, run the following command:
 
 
+#alembic commands 
+
+docker compose run --rm service_name alembic init alembic
+
+docker compose run --rm service_name alembic revision --autogenerate -m "description" 
+
+docker compose run --rm service_name alembic upgrade head
+
+
+
+
 ```bash
 python -m venv .venv
 ```
