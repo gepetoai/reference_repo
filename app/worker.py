@@ -1,10 +1,11 @@
 import time
-from src.db.supabase import SupabaseClient
-from src.core.logging import get_logger
-from src.worker.tasks import  celery_app
+from app.monitoring.logging import get_logger
+from app.clients.worker.celery_client import CeleryClient
 
-db = SupabaseClient()
 logger = get_logger('celery')
+
+celery_app = CeleryClient()
+
 
 
 
@@ -16,3 +17,4 @@ if __name__ == "__main__":
             pass
     except Exception as e:
         logger.exception('Exception in celery %s ::', e)
+        raise e

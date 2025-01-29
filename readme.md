@@ -13,16 +13,21 @@ docker compose run --rm web alembic upgrade head
 To create a virtual environment, run the following command:
 
 
+```bash
+python -m venv .venv
+```
+
+
 
 ### Activate Environment
 Activate the virtual environment using the appropriate command for your operating system:
 
 - **Windows:**
   ```bash
-  source ./env/Scripts/activate
+  source ./.venv/Scripts/activate
   ```
 
 - **macOS/Linux:**
   ```bash
-  source ./env/bin/activate
+  source ./.venv/bin/activate
   ```
